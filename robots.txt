@@ -1,0 +1,7 @@
+# Crawling is intentionally NOT blocked here.
+# Indexing is prevented by the "noindex" robots meta tag on every page
+# and the X-Robots-Tag: noindex response header (see vercel.json).
+# Blocking crawling with "Disallow: /" would stop crawlers from ever
+# seeing the noindex directive, which can leave URLs indexed anyway.
+User-agent: *
+Allow: /

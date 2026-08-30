@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CO2 Fractional Laser Resurfacing Manchester | Ullas Facial Plastic Surgery</title>
 <meta name="description" content="Fractional CO2 laser skin resurfacing performed personally by consultant facial plastic surgeon Mr Gautham Ullas in Manchester and Newton-le-Willows.">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -80,9 +81,6 @@ h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.12;color:
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--cream);overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('img/hero.webp') center right/cover no-repeat}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(100deg,var(--cream) 30%,rgba(245,239,230,.85) 44%,rgba(245,239,230,0) 62%)}
-.hero-scan{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.hero-scan::before{content:"";position:absolute;top:-10%;bottom:-10%;left:55%;width:2px;background:linear-gradient(to bottom,transparent,rgba(216,188,166,.9),transparent);filter:drop-shadow(0 0 12px rgba(216,188,166,.9));animation:scan 7s ease-in-out infinite}
-@keyframes scan{0%,100%{transform:translateX(0)}50%{transform:translateX(38vw)}}
 .hero-inner{position:relative;z-index:2;padding:calc(var(--header-h) + 40px) 0 70px}
 .hero-copy{max-width:590px}
 .hero-copy h1{font-size:clamp(40px,5.2vw,68px);margin:20px 0 18px}
@@ -112,7 +110,7 @@ section{position:relative}
 .intro{background:var(--cream-warm)}
 .intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:center}
 .intro-text .eyebrow{margin-bottom:22px}
-.intro-text p.lede{font-family:var(--font-display);font-size:clamp(23px,2.4vw,31px);line-height:1.42;color:var(--slate)}
+.intro-text p.lede{font-family:var(--font-display);font-size:clamp(18px,1.8vw,23px);line-height:1.55;color:var(--slate)}
 .intro-text p.lede strong{color:var(--sand-deep);font-weight:400}
 .intro-visual{position:relative;min-height:460px}
 .intro-visual .iv-main{width:78%;border-radius:var(--r-lg);box-shadow:var(--shadow-lift);position:relative;z-index:2}
@@ -140,9 +138,10 @@ section{position:relative}
 .glance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .glance-card{background:rgba(245,239,230,.07);border:1px solid rgba(216,188,166,.25);border-radius:var(--r-md);padding:22px 20px;transition:background .3s,transform .3s}
 .glance-card:hover{background:rgba(245,239,230,.12);transform:translateY(-3px)}
-.glance-card .g-label{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
-.glance-card .g-value{font-family:var(--font-display);font-size:24px;color:var(--cream);line-height:1.15}
-.glance-card .g-detail{font-size:13.5px;color:rgba(245,239,230,.6);margin-top:5px}
+.glance-card .g-icon{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(216,188,166,.16);color:var(--sand);margin-bottom:14px}
+.glance-card .g-label{display:block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
+.glance-card .g-value{display:block;font-family:var(--font-display);font-size:24px;color:var(--cream);line-height:1.15}
+.glance-card .g-detail{display:block;font-size:13.5px;color:rgba(245,239,230,.6);margin-top:5px}
 
 /* ---------- concerns ---------- */
 .concerns{background:var(--cream)}
@@ -302,6 +301,21 @@ section{position:relative}
 .book-form .btn{grid-column:1/-1;justify-self:start}
 .book-privacy{grid-column:1/-1;font-size:12.5px;color:rgba(245,239,230,.45)}
 
+/* ---------- repeating CTA band ---------- */
+.cta-band{background:linear-gradient(120deg,var(--sand),#E7CFB8);padding:36px 0}
+.cta-band-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.cta-band p{font-family:var(--font-display);font-size:clamp(20px,2.1vw,26px);color:var(--slate-ink);line-height:1.3}
+.cta-band-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cta-band-actions .btn{background:var(--slate);color:var(--cream)}
+.cta-band-actions .btn:hover{transform:translateY(-2px)}
+.cta-band-call{font-weight:800;font-size:16px;color:var(--slate-ink);text-decoration:none;white-space:nowrap}
+.cta-band-call:hover{text-decoration:underline}
+@media (max-width:700px){
+  .cta-band-inner{flex-direction:column;align-items:flex-start}
+  .cta-band-actions{width:100%}
+  .cta-band-actions .btn{width:100%}
+}
+
 /* ---------- footer ---------- */
 .site-footer{background:var(--slate-ink);color:rgba(245,239,230,.75);padding:70px 0 34px}
 .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
@@ -351,7 +365,7 @@ section{position:relative}
   .header-book-mobile{display:none;padding:11px 18px;font-size:11.5px}
   .site-header.scrolled .header-book-mobile{display:inline-flex}
   .hero{min-height:0;display:block}
-  .hero-bg,.hero-scrim,.hero-scan{display:none}
+  .hero-bg,.hero-scrim{display:none}
   .hero-img-mobile{display:block;position:relative}
   .hero-img-mobile img{width:100%;aspect-ratio:4/5;object-fit:cover}
   .hero-img-mobile::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:45%;background:linear-gradient(to bottom,rgba(245,239,230,0),var(--cream) 92%)}
@@ -374,7 +388,6 @@ section{position:relative}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hero-scan::before{animation:none}
   .reveal{opacity:1;transform:none;transition:none}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
 }
@@ -431,7 +444,6 @@ section{position:relative}
 <section class="hero">
   <div class="hero-bg" role="img" aria-label="Mr Gautham Ullas performing fractional CO2 laser resurfacing on a patient"></div>
   <div class="hero-scrim"></div>
-  <div class="hero-scan" aria-hidden="true"></div>
   <div class="hero-img-mobile" aria-hidden="true"><img src="img/hero-mobile.webp" alt=""></div>
   <div class="container hero-inner">
     <div class="hero-copy">
@@ -469,7 +481,7 @@ section{position:relative}
     <div class="intro-visual reveal reveal-d1">
       <div class="dotfield iv-dots" aria-hidden="true"></div>
       <img class="iv-main" src="img/glow.webp" alt="Woman with smooth, luminous skin after treatment" loading="lazy">
-      <img class="iv-sat" src="img/texture.webp" alt="Close view of renewed skin texture" loading="lazy">
+      <img class="iv-sat" src="img/skinmacro.webp" alt="Close-up of smooth, healthy skin along the jawline" loading="lazy">
     </div>
   </div>
 </section>
@@ -488,9 +500,9 @@ section{position:relative}
     <div class="results-grid">
       <div class="ba-wrap reveal">
         <div class="ba-slider" id="baSlider" role="slider" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-          <img src="img/ba-before.webp" alt="Patient before CO2 laser treatment">
+          <img src="img/ba-after.webp" alt="Patient after CO2 laser treatment">
           <div class="ba-after-clip" id="baClip">
-            <img src="img/ba-after.webp" alt="Patient after CO2 laser treatment" id="baAfterImg">
+            <img src="img/ba-before.webp" alt="Patient before CO2 laser treatment" id="baAfterImg">
           </div>
           <span class="ba-tag before">Before</span>
           <span class="ba-tag after">After</span>
@@ -502,17 +514,27 @@ section{position:relative}
         <h3>The treatment at a glance</h3>
         <p class="glance-sub">The essentials, before you read any further.</p>
         <div class="glance-grid">
-          <div class="glance-card"><span class="g-label">Treatment time</span><span class="g-value">~20 min</span><span class="g-detail">for a full face session</span></div>
-          <div class="glance-card"><span class="g-label">Comfort</span><span class="g-value">Numbing cream</span><span class="g-detail">a light tickle, then warmth</span></div>
-          <div class="glance-card"><span class="g-label">Social downtime</span><span class="g-value">5 to 7 days</span><span class="g-detail">redness and flaking as skin renews</span></div>
-          <div class="glance-card"><span class="g-label">Sessions</span><span class="g-value">Often just 1</span><span class="g-detail">deeper concerns may need more</span></div>
-          <div class="glance-card"><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
-          <div class="glance-card"><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.8"/></svg></span><span class="g-label">Treatment time</span><span class="g-value">~20 min</span><span class="g-detail">for a full face session</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.2 6 10.2a6 6 0 0 1-12 0C6 9.7 12 3.5 12 3.5z"/></svg></span><span class="g-label">Comfort</span><span class="g-value">Numbing cream</span><span class="g-detail">a light tickle, then warmth</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></span><span class="g-label">Social downtime</span><span class="g-value">5 to 7 days</span><span class="g-detail">redness and flaking as skin renews</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9.5l2.5-1.5v8"/></svg></span><span class="g-label">Sessions</span><span class="g-value">Often just 1</span><span class="g-detail">deeper concerns may need more</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
+          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="cta-band">
+  <div class="container cta-band-inner">
+    <p>Curious whether CO2 laser is right for your skin?</p>
+    <div class="cta-band-actions">
+      <a class="btn" href="#book">Book a Consultation</a>
+      <a class="cta-band-call" href="tel:01615201181">or call 0161 520 1181</a>
+    </div>
+  </div>
+</div>
 
 <!-- ======= IS THIS YOU ======= -->
 <section class="concerns sec-pad" id="concerns">
@@ -568,6 +590,16 @@ section{position:relative}
     </div>
   </div>
 </section>
+
+<div class="cta-band">
+  <div class="container cta-band-inner">
+    <p>Your skin questions, answered in person by Mr Ullas.</p>
+    <div class="cta-band-actions">
+      <a class="btn" href="#book">Book a Consultation</a>
+      <a class="cta-band-call" href="tel:01615201181">or call 0161 520 1181</a>
+    </div>
+  </div>
+</div>
 
 <!-- ======= JOURNEY ======= -->
 <section class="journey sec-pad" id="journey">
@@ -670,6 +702,16 @@ section{position:relative}
   </div>
 </section>
 
+<div class="cta-band">
+  <div class="container cta-band-inner">
+    <p>Ready to see what your skin can do?</p>
+    <div class="cta-band-actions">
+      <a class="btn" href="#book">Book a Consultation</a>
+      <a class="cta-band-call" href="tel:01615201181">or call 0161 520 1181</a>
+    </div>
+  </div>
+</div>
+
 <!-- ======= MEET MR ULLAS ======= -->
 <section class="ullas sec-pad" id="ullas">
   <div class="container ullas-grid">
@@ -752,6 +794,16 @@ section{position:relative}
     </div>
   </div>
 </section>
+
+<div class="cta-band">
+  <div class="container cta-band-inner">
+    <p>Spread the cost with Klarna. It starts with a consultation.</p>
+    <div class="cta-band-actions">
+      <a class="btn" href="#book">Book a Consultation</a>
+      <a class="cta-band-call" href="tel:01615201181">or call 0161 520 1181</a>
+    </div>
+  </div>
+</div>
 
 <!-- ======= SUITABILITY ======= -->
 <section class="suit sec-pad" id="suitability">

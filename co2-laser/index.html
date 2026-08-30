@@ -204,10 +204,10 @@ section{position:relative}
 
 /* ---------- why us ---------- */
 .why{background:var(--cream)}
-.why-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:center}
+.why-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:center}
 .why-visual{position:relative}
 .why-visual .wv-main{border-radius:var(--r-lg);box-shadow:var(--shadow-lift)}
-.why-visual .wv-sat{position:absolute;width:38%;right:-8%;top:-9%;border-radius:var(--r-md);border:6px solid var(--cream);box-shadow:var(--shadow-soft);transform:rotate(3deg);z-index:3}
+.why-visual .wv-sat{position:absolute;width:38%;left:-8%;top:-9%;border-radius:var(--r-md);border:6px solid var(--cream);box-shadow:var(--shadow-soft);transform:rotate(-3deg);z-index:3}
 .why-list{display:flex;flex-direction:column;gap:8px;margin-top:30px;counter-reset:why}
 .why-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(47,72,86,.14)}
 .why-item:last-child{border-bottom:none}
@@ -283,15 +283,15 @@ section{position:relative}
 .faq-a-inner{padding:0 26px 24px;font-size:15px;color:rgba(29,47,56,.75)}
 
 /* ---------- booking ---------- */
-.book{background:var(--slate-deep);color:var(--cream);overflow:hidden}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:stretch}
-.book-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:480px;box-shadow:var(--shadow-lift)}
-.book-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.book-visual .bv-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(29,47,56,.75),transparent 55%)}
-.book-visual .bv-caption{position:absolute;left:30px;bottom:26px;right:30px}
-.book-visual .bv-caption p{font-family:var(--font-display);font-size:22px;color:var(--cream)}
-.book-visual .bv-caption span{font-size:13px;color:rgba(245,239,230,.7)}
-.book-copy .sec-head{margin-bottom:26px}
+.book{position:relative;background:var(--slate-deep);color:var(--cream);overflow:hidden}
+.book-bg{position:absolute;inset:0}
+.book-bg img{width:100%;height:100%;object-fit:cover;object-position:left center}
+.book-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(29,47,56,.25) 0%,rgba(29,47,56,.55) 35%,rgba(29,47,56,.8) 60%)}
+.book-card{position:relative;z-index:2;max-width:800px;margin:0 auto;background:rgba(29,47,56,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(216,188,166,.28);border-radius:var(--r-lg);padding:clamp(28px,4.5vw,56px);box-shadow:var(--shadow-lift)}
+.book-card .sec-head{margin-bottom:26px;max-width:none}
+.book-caption{position:absolute;z-index:2;left:4vw;bottom:34px;max-width:280px;pointer-events:none}
+.book-caption p{font-family:var(--font-display);font-size:22px;color:var(--cream);text-shadow:0 2px 14px rgba(29,47,56,.6)}
+.book-caption span{font-size:13px;color:rgba(245,239,230,.75);text-shadow:0 2px 14px rgba(29,47,56,.6)}
 .book-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field.full{grid-column:1/-1}
@@ -354,7 +354,8 @@ section{position:relative}
   .heal-track::before{display:none}
 }
 @media (max-width:900px){
-  .results-grid,.science-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols,.book-grid{grid-template-columns:1fr}
+  .results-grid,.science-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols{grid-template-columns:1fr}
+  .book-caption{display:none}
   .intro-grid{grid-template-columns:1fr 1fr}
   .intro-text{grid-column:1/-1;order:-1;margin-bottom:10px}
   .bento{grid-template-columns:1fr 1fr}
@@ -681,10 +682,6 @@ section{position:relative}
 <!-- ======= WHY CHOOSE US ======= -->
 <section class="why sec-pad" id="why">
   <div class="container why-grid">
-    <div class="why-visual reveal">
-      <img class="wv-main" src="img/welcome.webp" alt="Mr Ullas welcoming a patient into the consultation room" loading="lazy">
-      <img class="wv-sat" src="img/device.webp" alt="Mr Ullas beside the CO2 laser platform" loading="lazy">
-    </div>
     <div class="reveal reveal-d1">
       <div class="sec-head" style="margin-bottom:0">
         <span class="eyebrow">
@@ -700,6 +697,10 @@ section{position:relative}
         <div class="why-item"><div class="w-marker">4</div><div><strong>Care that continues after the session</strong><p>Structured aftercare, the right recovery cream and SPF guidance, and direct follow-up through every stage of healing.</p></div></div>
         <div class="why-item"><div class="w-marker">5</div><div><strong>Two convenient private locations</strong><p>Consultations and treatments at Pall Mall Medical in Manchester city centre and Newton-le-Willows.</p></div></div>
       </div>
+    </div>
+    <div class="why-visual reveal">
+      <img class="wv-main" src="img/welcome.webp" alt="Mr Ullas welcoming a patient into the consultation room" loading="lazy">
+      <img class="wv-sat" src="img/device.webp" alt="Mr Ullas beside the CO2 laser platform" loading="lazy">
     </div>
   </div>
 </section>
@@ -878,16 +879,16 @@ section{position:relative}
 
 <!-- ======= BOOKING ======= -->
 <section class="book sec-pad" id="book">
-  <div class="container book-grid">
-    <div class="book-visual reveal">
-      <img src="img/glow.webp" alt="Woman with renewed, glowing skin" loading="lazy">
-      <div class="bv-scrim" aria-hidden="true"></div>
-      <div class="bv-caption">
-        <p>Your skin has been waiting.</p>
-        <span>Consultations in Manchester and Newton-le-Willows</span>
-      </div>
-    </div>
-    <div class="book-copy reveal reveal-d1">
+  <div class="book-bg" aria-hidden="true">
+    <img src="img/book-bg.webp" alt="" loading="lazy">
+  </div>
+  <div class="book-overlay" aria-hidden="true"></div>
+  <div class="book-caption" aria-hidden="true">
+    <p>Your skin has been waiting.</p>
+    <span>Consultations in Manchester and Newton-le-Willows</span>
+  </div>
+  <div class="container">
+    <div class="book-card reveal">
       <div class="sec-head">
         <span class="eyebrow on-dark">
           <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="22" cy="4" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="22" cy="13" r="2"/><circle cx="4" cy="22" r="2"/><circle cx="13" cy="22" r="2"/><circle cx="22" cy="22" r="2"/></svg>

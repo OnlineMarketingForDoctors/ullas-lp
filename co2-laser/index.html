@@ -136,6 +136,41 @@ section{position:relative}
 .glance-card .g-value{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);line-height:1.15}
 .glance-card .g-detail{display:block;font-size:14px;color:rgba(245,239,230,.6);margin-top:6px}
 
+/* ---------- recovery journey (before & after) ---------- */
+.jrny{background:var(--cream)}
+.jrny-track{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,26px);position:relative}
+.jrny-track::before{content:"";position:absolute;top:11px;left:calc(12.5% + 10px);right:calc(12.5% + 10px);height:2px;background:linear-gradient(to right,var(--sand-deep),rgba(216,188,166,.4))}
+.jrny-step{position:relative}
+.j-dot{width:22px;height:22px;border-radius:50%;background:var(--cream);border:2px solid var(--sand-deep);margin:0 auto 18px;position:relative;z-index:2}
+.jrny-step:first-child .j-dot{background:var(--sand-deep)}
+.j-when{display:block;text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-deep);margin-bottom:4px}
+.j-title{text-align:center;font-family:var(--font-display);font-size:22px;color:var(--slate);margin-bottom:14px}
+.j-frame{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:3/4;background:var(--slate);box-shadow:var(--shadow-soft)}
+.j-slides{display:flex;height:100%;transition:transform .45s cubic-bezier(.3,.7,.2,1)}
+.j-slides img{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.j-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;background:rgba(245,239,230,.9);color:var(--slate);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s,background .25s;z-index:3}
+.j-frame:hover .j-nav,.j-frame:focus-within .j-nav{opacity:1}
+.j-nav:hover{background:var(--sand)}
+.j-nav.prev{left:8px}
+.j-nav.next{right:8px}
+.j-count{position:absolute;top:10px;right:10px;z-index:3;background:rgba(29,47,56,.72);color:var(--cream);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 10px;border-radius:999px}
+.j-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+.j-dots button{width:7px;height:7px;padding:0;border-radius:50%;border:none;cursor:pointer;background:rgba(47,72,86,.28);transition:background .25s,transform .25s}
+.j-dots button[aria-current="true"]{background:var(--sand-deep);transform:scale(1.35)}
+.j-note{margin-top:11px;font-size:13.5px;line-height:1.5;color:rgba(29,47,56,.7);text-align:center}
+.jrny-foot{margin-top:34px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.jrny-foot p{font-size:13px;color:rgba(29,47,56,.55);max-width:560px}
+
+@media (max-width:1080px){
+  .jrny-track{grid-template-columns:1fr 1fr;gap:28px}
+  .jrny-track::before{display:none}
+}
+@media (max-width:700px){
+  .jrny-track{grid-template-columns:1fr;gap:34px}
+  .j-nav{opacity:1;background:rgba(245,239,230,.85)}
+  .jrny-foot{justify-content:center;text-align:center}
+}
+
 /* ---------- concerns (bento grid) ---------- */
 .concerns{background:var(--cream)}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -429,7 +464,7 @@ section{position:relative}
     </a>
     <a class="btn btn-sand header-book-mobile" href="#book">Book a Consultation</a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#glance">At a Glance</a>
+      <a href="#results">Results</a>
       <a href="#science">Science</a>
       <a href="#journey">Journey</a>
       <a href="#ullas">Mr Ullas</a>
@@ -453,7 +488,7 @@ section{position:relative}
 </header>
 
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <a href="#glance">At a Glance</a>
+  <a href="#results">Results</a>
   <a href="#science">Science</a>
   <a href="#journey">Journey</a>
   <a href="#ullas">Mr Ullas</a>
@@ -487,7 +522,7 @@ section{position:relative}
       </ul>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#book">Book a Consultation</a>
-        <a class="btn btn-ghost" href="#glance">Treatment at a Glance</a>
+        <a class="btn btn-ghost" href="#results">Before &amp; After</a>
       </div>
     </div>
   </div>
@@ -533,6 +568,94 @@ section{position:relative}
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>    </div>
     <a class="btn btn-sand sec-cta" href="#book">Book a Consultation</a>
+  </div>
+</section>
+
+<!-- ======= RECOVERY JOURNEY / BEFORE & AFTER ======= -->
+<section class="jrny sec-pad" id="results">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="22" cy="4" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="22" cy="13" r="2"/><circle cx="4" cy="22" r="2"/><circle cx="13" cy="22" r="2"/><circle cx="22" cy="22" r="2"/></svg>
+        Real patient, real recovery
+      </span>
+      <h2>Before, and every day after</h2>
+      <p>One patient, photographed from three angles at each stage of her recovery. Drag or use the arrows on any stage to see all three views.</p>
+    </div>
+    <div class="jrny-track">
+      <article class="jrny-step reveal">
+        <div class="j-dot" aria-hidden="true"></div>
+        <span class="j-when">Pre-treatment</span>
+        <h3 class="j-title">Before</h3>
+        <div class="j-frame" data-slider>
+          <div class="j-slides">
+            <img src="img/journey/pre-1.webp" alt="Before at pre-treatment, angle 1 of 3" loading="lazy">
+            <img src="img/journey/pre-2.webp" alt="Before at pre-treatment, angle 2 of 3" loading="lazy">
+            <img src="img/journey/pre-3.webp" alt="Before at pre-treatment, angle 3 of 3" loading="lazy">
+          </div>
+          <span class="j-count">1 / 3</span>
+          <button class="j-nav prev" type="button" aria-label="Previous angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="j-nav next" type="button" aria-label="Next angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="j-dots"><button type="button" data-go="0" aria-current="true" aria-label="View angle 1"></button><button type="button" data-go="1" aria-current="false" aria-label="View angle 2"></button><button type="button" data-go="2" aria-current="false" aria-label="View angle 3"></button></div>
+        <p class="j-note">Skin as it looked on the day, before any treatment.</p>
+      </article>
+      <article class="jrny-step reveal">
+        <div class="j-dot" aria-hidden="true"></div>
+        <span class="j-when">24 hours</span>
+        <h3 class="j-title">Day 1</h3>
+        <div class="j-frame" data-slider>
+          <div class="j-slides">
+            <img src="img/journey/h24-1.webp" alt="Day 1 at 24 hours, angle 1 of 3" loading="lazy">
+            <img src="img/journey/h24-2.webp" alt="Day 1 at 24 hours, angle 2 of 3" loading="lazy">
+            <img src="img/journey/h24-3.webp" alt="Day 1 at 24 hours, angle 3 of 3" loading="lazy">
+          </div>
+          <span class="j-count">1 / 3</span>
+          <button class="j-nav prev" type="button" aria-label="Previous angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="j-nav next" type="button" aria-label="Next angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="j-dots"><button type="button" data-go="0" aria-current="true" aria-label="View angle 1"></button><button type="button" data-go="1" aria-current="false" aria-label="View angle 2"></button><button type="button" data-go="2" aria-current="false" aria-label="View angle 3"></button></div>
+        <p class="j-note">Warm and pink, with the fine grid pattern of the treatment visible.</p>
+      </article>
+      <article class="jrny-step reveal">
+        <div class="j-dot" aria-hidden="true"></div>
+        <span class="j-when">48 hours</span>
+        <h3 class="j-title">Day 2</h3>
+        <div class="j-frame" data-slider>
+          <div class="j-slides">
+            <img src="img/journey/h48-1.webp" alt="Day 2 at 48 hours, angle 1 of 3" loading="lazy">
+            <img src="img/journey/h48-2.webp" alt="Day 2 at 48 hours, angle 2 of 3" loading="lazy">
+            <img src="img/journey/h48-3.webp" alt="Day 2 at 48 hours, angle 3 of 3" loading="lazy">
+          </div>
+          <span class="j-count">1 / 3</span>
+          <button class="j-nav prev" type="button" aria-label="Previous angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="j-nav next" type="button" aria-label="Next angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="j-dots"><button type="button" data-go="0" aria-current="true" aria-label="View angle 1"></button><button type="button" data-go="1" aria-current="false" aria-label="View angle 2"></button><button type="button" data-go="2" aria-current="false" aria-label="View angle 3"></button></div>
+        <p class="j-note">Redness settling, the treated surface starting to dry and tighten.</p>
+      </article>
+      <article class="jrny-step reveal">
+        <div class="j-dot" aria-hidden="true"></div>
+        <span class="j-when">5 days</span>
+        <h3 class="j-title">Day 5</h3>
+        <div class="j-frame" data-slider>
+          <div class="j-slides">
+            <img src="img/journey/d5-1.webp" alt="Day 5 at 5 days, angle 1 of 3" loading="lazy">
+            <img src="img/journey/d5-2.webp" alt="Day 5 at 5 days, angle 2 of 3" loading="lazy">
+            <img src="img/journey/d5-3.webp" alt="Day 5 at 5 days, angle 3 of 3" loading="lazy">
+          </div>
+          <span class="j-count">1 / 3</span>
+          <button class="j-nav prev" type="button" aria-label="Previous angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="j-nav next" type="button" aria-label="Next angle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="j-dots"><button type="button" data-go="0" aria-current="true" aria-label="View angle 1"></button><button type="button" data-go="1" aria-current="false" aria-label="View angle 2"></button><button type="button" data-go="2" aria-current="false" aria-label="View angle 3"></button></div>
+        <p class="j-note">The surface has flaked away to reveal fresher skin underneath.</p>
+      </article>
+    </div>
+    <div class="jrny-foot reveal">
+      <p>Individual results and recovery vary. Photographs are of a genuine patient of Mr Ullas and are shared with her consent.</p>
+      <a class="btn btn-primary" href="#book">Book a Consultation</a>
+    </div>
   </div>
 </section>
 
@@ -1048,6 +1171,37 @@ section{position:relative}
     });
   }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  /* recovery journey sliders */
+  document.querySelectorAll('[data-slider]').forEach(function(frame){
+    var track = frame.querySelector('.j-slides');
+    var count = frame.querySelector('.j-count');
+    var dots  = frame.parentElement.querySelectorAll('.j-dots button');
+    var total = track.children.length;
+    var idx = 0;
+    function show(n){
+      idx = (n + total) % total;
+      track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      count.textContent = (idx + 1) + ' / ' + total;
+      dots.forEach(function(d, i){ d.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+    }
+    frame.querySelector('.j-nav.prev').addEventListener('click', function(){ show(idx - 1); });
+    frame.querySelector('.j-nav.next').addEventListener('click', function(){ show(idx + 1); });
+    dots.forEach(function(d){ d.addEventListener('click', function(){ show(+d.dataset.go); }); });
+    frame.addEventListener('keydown', function(ev){
+      if(ev.key === 'ArrowLeft'){ show(idx - 1); ev.preventDefault(); }
+      if(ev.key === 'ArrowRight'){ show(idx + 1); ev.preventDefault(); }
+    });
+    var x0 = null;
+    frame.addEventListener('pointerdown', function(ev){ x0 = ev.clientX; });
+    frame.addEventListener('pointerup', function(ev){
+      if(x0 === null) return;
+      var dx = ev.clientX - x0;
+      if(Math.abs(dx) > 40){ show(idx + (dx < 0 ? 1 : -1)); }
+      x0 = null;
+    });
+    frame.addEventListener('pointercancel', function(){ x0 = null; });
+  });
 
   /* FAQ accordion */
   document.querySelectorAll('.faq-item').forEach(function(item){

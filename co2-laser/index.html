@@ -176,6 +176,22 @@ section{position:relative}
 .s-fact .sf-num{font-family:var(--font-display);font-size:34px;color:var(--sand-deep)}
 .s-fact .sf-cap{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 
+/* ---------- device ---------- */
+.device{background:var(--cream);overflow:hidden}
+.device-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:center}
+.device-copy h2{font-size:clamp(32px,3.6vw,46px);margin:16px 0 20px}
+.device-copy p{margin-bottom:16px;color:rgba(29,47,56,.8)}
+.device-feats{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:26px}
+.device-feats li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:15.5px;color:var(--slate)}
+.device-feats svg{flex:none;margin-top:4px}
+.device-visual{position:relative;display:flex;justify-content:center;padding:36px 0 10px}
+.device-blob{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:min(420px,86%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 32%,#EDD8C3,var(--sand));z-index:1}
+.device-dots{position:absolute;width:60%;height:45%;right:0;bottom:2%;z-index:1}
+.device-visual img{position:relative;z-index:2;max-height:540px;width:auto;filter:drop-shadow(0 34px 46px rgba(29,47,56,.35))}
+.d-chip{position:absolute;z-index:3;background:var(--white);border-radius:999px;padding:12px 20px;font-size:13px;font-weight:700;color:var(--slate);box-shadow:var(--shadow-soft);white-space:nowrap}
+.d-chip.c1{left:2%;top:24%;transform:rotate(-4deg)}
+.d-chip.c2{right:0;bottom:20%;transform:rotate(3deg)}
+
 /* ---------- journey ---------- */
 .journey{background:var(--slate-deep);color:var(--cream)}
 .journey .sec-head h2{color:var(--cream)}
@@ -355,7 +371,7 @@ section{position:relative}
   .heal-track::before{display:none}
 }
 @media (max-width:900px){
-  .results-grid,.science-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols{grid-template-columns:1fr}
+  .results-grid,.science-grid,.device-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols{grid-template-columns:1fr}
   .book-caption{display:none}
   .intro-grid{grid-template-columns:1fr 1fr}
   .intro-text{grid-column:1/-1;order:-1;margin-bottom:10px}
@@ -399,6 +415,10 @@ section{position:relative}
   .ullas-visual{padding:0}
   .sec-cta{display:flex;width:fit-content;margin-left:auto;margin-right:auto}
   .heal-stage{text-align:left}
+  .device-visual img{max-height:420px}
+  .d-chip{font-size:11.5px;padding:10px 15px}
+  .d-chip.c1{left:0;top:14%}
+  .d-chip.c2{right:0;bottom:10%}
   .affil-label{text-align:center}
   .affil-logos{justify-content:center}
   .to-top{right:16px;bottom:16px;width:46px;height:46px}
@@ -596,6 +616,34 @@ section{position:relative}
         <div class="s-fact"><div class="sf-num">Days</div><div class="sf-cap">not weeks of downtime</div></div>
         <div class="s-fact"><div class="sf-num">Months</div><div class="sf-cap">of collagen building</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= DEVICE ======= -->
+<section class="device sec-pad" id="device">
+  <div class="container device-grid">
+    <div class="device-copy reveal">
+      <span class="eyebrow">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="22" cy="4" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="22" cy="13" r="2"/><circle cx="4" cy="22" r="2"/><circle cx="13" cy="22" r="2"/><circle cx="22" cy="22" r="2"/></svg>
+        The technology
+      </span>
+      <h2>Meet Vjuve MD</h2>
+      <p>Every treatment on this page is delivered with Vjuve MD, a next generation fractional CO2 laser built for medical grade skin renewal. It is designed for exactly the concerns you have read about here: resurfacing, scar treatment, pigmentation reduction and fine line smoothing.</p>
+      <p>Its fractional beam creates thousands of precise micro channels in the skin, triggering your body's natural regeneration while leaving the surrounding surface untouched. The result is dramatic improvement in texture, tone and clarity, with smoother, firmer and more youthful looking skin, all without surgery.</p>
+      <ul class="device-feats">
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#C2A184" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3 4.7-4.8" stroke="#2F4856" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Next generation fractional CO2 technology</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#C2A184" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3 4.7-4.8" stroke="#2F4856" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Adjustable settings, tuned by Mr Ullas to your skin and concern</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#C2A184" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3 4.7-4.8" stroke="#2F4856" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Resurfacing, scars, pigmentation and fine lines on one platform</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#C2A184" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3 4.7-4.8" stroke="#2F4856" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Medical grade performance with non invasive delivery</li>
+      </ul>
+    </div>
+    <div class="device-visual reveal reveal-d1">
+      <div class="device-blob" aria-hidden="true"></div>
+      <div class="dotfield device-dots" aria-hidden="true"></div>
+      <img src="img/vjuve-md.webp" alt="The Vjuve MD fractional CO2 laser platform" loading="lazy">
+      <span class="d-chip c1">Micro channel precision</span>
+      <span class="d-chip c2">Trusted in medical practice</span>
     </div>
   </div>
 </section>

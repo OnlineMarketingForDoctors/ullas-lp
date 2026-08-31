@@ -123,31 +123,18 @@ section{position:relative}
 .iv-right img{aspect-ratio:4/5;transform:rotate(2.5deg)}
 .iv-right .iv-dots{right:-8%;bottom:-9%}
 
-/* ---------- results / before & after ---------- */
-.results{background:var(--slate);color:var(--cream)}
-.results .sec-head h2{color:var(--cream)}
-.results .sec-head p{color:rgba(245,239,230,.7)}
-.results-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,70px);align-items:center}
-.ba-wrap{position:relative}
-.ba-slider{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);aspect-ratio:9/13;user-select:none;touch-action:none}
-.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.ba-after-clip{position:absolute;inset:0;overflow:hidden;width:50%}
-.ba-after-clip img{width:auto;height:100%;max-width:none}
-.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--sand);cursor:ew-resize;z-index:5}
-.ba-handle::after{content:"◂ ▸";display:flex;align-items:center;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--sand);color:var(--slate);font-size:13px;font-weight:700;letter-spacing:-1px;box-shadow:0 8px 22px rgba(0,0,0,.35)}
-.ba-tag{position:absolute;top:16px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(29,47,56,.72);color:var(--cream);padding:7px 14px;border-radius:999px;z-index:4;pointer-events:none}
-.ba-tag.before{left:16px}
-.ba-tag.after{right:16px}
-.ba-note{margin-top:14px;font-size:13px;color:rgba(245,239,230,.55)}
-.glance h3{font-size:clamp(26px,2.6vw,36px);color:var(--cream);margin-bottom:8px}
-.glance-sub{color:rgba(245,239,230,.7);margin-bottom:28px}
-.glance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.glance-card{background:rgba(245,239,230,.07);border:1px solid rgba(216,188,166,.25);border-radius:var(--r-md);padding:22px 20px;transition:background .3s,transform .3s}
+/* ---------- at a glance ---------- */
+.glance-sec{background:var(--slate);color:var(--cream)}
+.glance-sec .sec-head{margin-bottom:clamp(30px,4vw,46px)}
+.glance-sec .sec-head h2{color:var(--cream)}
+.glance-sec .sec-head p{color:rgba(245,239,230,.7)}
+.glance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.glance-card{background:rgba(245,239,230,.07);border:1px solid rgba(216,188,166,.25);border-radius:var(--r-md);padding:28px 26px;transition:background .3s,transform .3s}
 .glance-card:hover{background:rgba(245,239,230,.12);transform:translateY(-3px)}
-.glance-card .g-icon{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(216,188,166,.16);color:var(--sand);margin-bottom:14px}
+.glance-card .g-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(216,188,166,.16);color:var(--sand);margin-bottom:16px}
 .glance-card .g-label{display:block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
-.glance-card .g-value{display:block;font-family:var(--font-display);font-size:24px;color:var(--cream);line-height:1.15}
-.glance-card .g-detail{display:block;font-size:13.5px;color:rgba(245,239,230,.6);margin-top:5px}
+.glance-card .g-value{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);line-height:1.15}
+.glance-card .g-detail{display:block;font-size:14px;color:rgba(245,239,230,.6);margin-top:6px}
 
 /* ---------- concerns (bento grid) ---------- */
 .concerns{background:var(--cream)}
@@ -371,15 +358,15 @@ section{position:relative}
   .heal-track::before{display:none}
 }
 @media (max-width:900px){
-  .results-grid,.science-grid,.device-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols{grid-template-columns:1fr}
+  .science-grid,.device-grid,.why-grid,.ullas-grid,.pricing-layout,.suit-grid,.faq-cols{grid-template-columns:1fr}
   .book-caption{display:none}
   .intro-grid{grid-template-columns:1fr 1fr}
   .intro-text{grid-column:1/-1;order:-1;margin-bottom:10px}
   .bento{grid-template-columns:1fr 1fr}
+  .glance-grid{grid-template-columns:1fr 1fr}
   .faq-side{position:static}
   .faq-side img{max-width:380px}
   .footer-grid{grid-template-columns:1fr 1fr}
-  .ba-slider{max-width:480px}
   .ullas-visual{margin-bottom:40px}
 }
 @media (max-width:700px){
@@ -400,6 +387,7 @@ section{position:relative}
   .hero-ctas .btn{width:100%}
   .journey-steps{grid-template-columns:1fr}
   .bento{grid-template-columns:1fr}
+  .glance-grid{grid-template-columns:1fr}
   .b-img.tall{min-height:360px}
   .b-img.wide{grid-column:auto}
   .heal-track{grid-template-columns:1fr;text-align:left}
@@ -441,7 +429,7 @@ section{position:relative}
     </a>
     <a class="btn btn-sand header-book-mobile" href="#book">Book a Consultation</a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#results">Results</a>
+      <a href="#glance">At a Glance</a>
       <a href="#science">Science</a>
       <a href="#journey">Journey</a>
       <a href="#ullas">Mr Ullas</a>
@@ -465,7 +453,7 @@ section{position:relative}
 </header>
 
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <a href="#results">Results</a>
+  <a href="#glance">At a Glance</a>
   <a href="#science">Science</a>
   <a href="#journey">Journey</a>
   <a href="#ullas">Mr Ullas</a>
@@ -499,7 +487,7 @@ section{position:relative}
       </ul>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#book">Book a Consultation</a>
-        <a class="btn btn-ghost" href="#results">Before &amp; After</a>
+        <a class="btn btn-ghost" href="#glance">Treatment at a Glance</a>
       </div>
     </div>
   </div>
@@ -526,44 +514,25 @@ section{position:relative}
   </div>
 </section>
 
-<!-- ======= BEFORE & AFTER + AT A GLANCE ======= -->
-<section class="results sec-pad" id="results">
+<!-- ======= AT A GLANCE ======= -->
+<section class="glance-sec sec-pad" id="glance">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow on-dark">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="22" cy="4" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="22" cy="13" r="2"/><circle cx="4" cy="22" r="2"/><circle cx="13" cy="22" r="2"/><circle cx="22" cy="22" r="2"/></svg>
-        Real patient, real result
+        The essentials
       </span>
-      <h2>See the change for yourself</h2>
-      <p>Drag the slider to compare one of our patients before and after fractional CO2 resurfacing with Mr Ullas.</p>
+      <h2>The treatment at a glance</h2>
+      <p>Everything most patients want to know before they read any further.</p>
     </div>
-    <div class="results-grid">
-      <div class="ba-wrap reveal">
-        <div class="ba-slider" id="baSlider" role="slider" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-          <img src="img/ba-after.webp" alt="Patient after CO2 laser treatment">
-          <div class="ba-after-clip" id="baClip">
-            <img src="img/ba-before.webp" alt="Patient before CO2 laser treatment" id="baAfterImg">
-          </div>
-          <span class="ba-tag before">Before</span>
-          <span class="ba-tag after">After</span>
-          <div class="ba-handle" id="baHandle"></div>
-        </div>
-        <p class="ba-note">Individual results vary. Photographs shared with the patient's consent.</p>
-      </div>
-      <div class="glance reveal reveal-d1">
-        <h3>The treatment at a glance</h3>
-        <p class="glance-sub">The essentials, before you read any further.</p>
-        <div class="glance-grid">
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.8"/></svg></span><span class="g-label">Treatment time</span><span class="g-value">~20 min</span><span class="g-detail">for a full face session</span></div>
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.2 6 10.2a6 6 0 0 1-12 0C6 9.7 12 3.5 12 3.5z"/></svg></span><span class="g-label">Comfort</span><span class="g-value">Numbing cream</span><span class="g-detail">a light tickle, then warmth</span></div>
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></span><span class="g-label">Social downtime</span><span class="g-value">5 to 7 days</span><span class="g-detail">redness and flaking as skin renews</span></div>
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9.5l2.5-1.5v8"/></svg></span><span class="g-label">Sessions</span><span class="g-value">Often just 1</span><span class="g-detail">deeper concerns may need more</span></div>
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
-          <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>
-        </div>
-        <a class="btn btn-sand sec-cta" href="#book">Book a Consultation</a>
-      </div>
-    </div>
+    <div class="glance-grid reveal">
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.8"/></svg></span><span class="g-label">Treatment time</span><span class="g-value">~20 min</span><span class="g-detail">for a full face session</span></div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.2 6 10.2a6 6 0 0 1-12 0C6 9.7 12 3.5 12 3.5z"/></svg></span><span class="g-label">Comfort</span><span class="g-value">Numbing cream</span><span class="g-detail">a light tickle, then warmth</span></div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></span><span class="g-label">Social downtime</span><span class="g-value">5 to 7 days</span><span class="g-detail">redness and flaking as skin renews</span></div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9.5l2.5-1.5v8"/></svg></span><span class="g-label">Sessions</span><span class="g-value">Often just 1</span><span class="g-detail">deeper concerns may need more</span></div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>    </div>
+    <a class="btn btn-sand sec-cta" href="#book">Book a Consultation</a>
   </div>
 </section>
 
@@ -1079,36 +1048,6 @@ section{position:relative}
     });
   }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
-
-  /* before / after slider */
-  var slider = document.getElementById('baSlider');
-  var clip = document.getElementById('baClip');
-  var afterImg = document.getElementById('baAfterImg');
-  var handle = document.getElementById('baHandle');
-  function sizeAfter(){ afterImg.style.width = slider.offsetWidth + 'px'; }
-  function setPos(pct){
-    pct = Math.max(4, Math.min(96, pct));
-    clip.style.width = pct + '%';
-    handle.style.left = pct + '%';
-    slider.setAttribute('aria-valuenow', Math.round(pct));
-  }
-  function moveFromEvent(ev){
-    var rect = slider.getBoundingClientRect();
-    var x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - rect.left;
-    setPos(x / rect.width * 100);
-  }
-  var dragging = false;
-  slider.addEventListener('pointerdown', function(ev){ dragging = true; slider.setPointerCapture(ev.pointerId); moveFromEvent(ev); });
-  slider.addEventListener('pointermove', function(ev){ if(dragging) moveFromEvent(ev); });
-  slider.addEventListener('pointerup', function(){ dragging = false; });
-  slider.addEventListener('pointercancel', function(){ dragging = false; });
-  slider.addEventListener('keydown', function(ev){
-    var now = parseFloat(slider.getAttribute('aria-valuenow'));
-    if(ev.key === 'ArrowLeft'){ setPos(now - 4); ev.preventDefault(); }
-    if(ev.key === 'ArrowRight'){ setPos(now + 4); ev.preventDefault(); }
-  });
-  window.addEventListener('resize', sizeAfter);
-  sizeAfter(); setPos(50);
 
   /* FAQ accordion */
   document.querySelectorAll('.faq-item').forEach(function(item){

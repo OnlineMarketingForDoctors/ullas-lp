@@ -30,7 +30,7 @@
   --header-h:84px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 10px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 10px);overflow-x:hidden}
 body{font-family:var(--font-body);color:var(--slate-ink);background:var(--cream);line-height:1.6;font-size:17px;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -344,7 +344,7 @@ section{position:relative}
 .faq{background:var(--cream-warm)}
 .faq-cols{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,5vw,70px);align-items:start}
 .faq-side{position:sticky;top:calc(var(--header-h) + 30px)}
-.faq-side img{border-radius:var(--r-lg);box-shadow:var(--shadow-lift);margin-top:28px;aspect-ratio:1/1;object-fit:cover}
+.faq-side img{width:100%;border-radius:var(--r-lg);box-shadow:var(--shadow-lift);margin-top:28px;aspect-ratio:1/1;object-fit:cover}
 .faq-list{display:flex;flex-direction:column;gap:14px}
 .faq-item{background:var(--white);border-radius:var(--r-sm);box-shadow:0 8px 24px -16px rgba(47,72,86,.3);overflow:hidden}
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;cursor:pointer;text-align:left;padding:22px 26px;font-family:var(--font-body);font-size:16.5px;font-weight:700;color:var(--slate)}
@@ -466,6 +466,8 @@ section{position:relative}
   .heal-stage .h-when{grid-column:2}
   .heal-stage h4,.heal-stage p{grid-column:2}
   .heal-quote{flex-direction:column;gap:8px}
+  .book-bg,.book-overlay{display:none}
+  .book{background:var(--slate-deep)}
   .book-form{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .intro-grid{gap:18px}

@@ -128,13 +128,23 @@ section{position:relative}
 .glance-sec .sec-head{margin-bottom:clamp(30px,4vw,46px)}
 .glance-sec .sec-head h2{color:var(--cream)}
 .glance-sec .sec-head p{color:rgba(245,239,230,.7)}
-.glance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.glance-card{background:rgba(245,239,230,.07);border:1px solid rgba(216,188,166,.25);border-radius:var(--r-md);padding:28px 26px;transition:background .3s,transform .3s}
+.glance-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,56px);align-items:start}
+.reel{position:relative}
+.reel-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);background:#000;aspect-ratio:9/16}
+.reel-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;background:linear-gradient(to top,rgba(29,47,56,.5),rgba(29,47,56,.1) 45%);transition:opacity .3s}
+.reel-play span{width:74px;height:74px;border-radius:50%;background:rgba(245,239,230,.94);color:var(--slate);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(0,0,0,.35);transition:transform .25s,background .25s}
+.reel-play:hover span{transform:scale(1.07);background:var(--sand)}
+.reel-frame.playing .reel-play{opacity:0;pointer-events:none}
+.reel-cap{margin-top:14px;font-size:13.5px;line-height:1.5;color:rgba(245,239,230,.62)}
+.reel-cap strong{display:block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:5px}
+.glance-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.glance-card{background:rgba(245,239,230,.07);border:1px solid rgba(216,188,166,.25);border-radius:var(--r-md);padding:24px 22px;transition:background .3s,transform .3s}
 .glance-card:hover{background:rgba(245,239,230,.12);transform:translateY(-3px)}
-.glance-card .g-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(216,188,166,.16);color:var(--sand);margin-bottom:16px}
+.glance-card .g-icon{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(216,188,166,.16);color:var(--sand);margin-bottom:14px}
 .glance-card .g-label{display:block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
-.glance-card .g-value{display:block;font-family:var(--font-display);font-size:26px;color:var(--cream);line-height:1.15}
-.glance-card .g-detail{display:block;font-size:14px;color:rgba(245,239,230,.6);margin-top:6px}
+.glance-card .g-value{display:block;font-family:var(--font-display);font-size:24px;color:var(--cream);line-height:1.15}
+.glance-card .g-detail{display:block;font-size:13.5px;color:rgba(245,239,230,.6);margin-top:6px}
 
 /* ---------- recovery journey (before & after) ---------- */
 .jrny{background:var(--cream)}
@@ -420,7 +430,9 @@ section{position:relative}
   .intro-grid{grid-template-columns:1fr 1fr}
   .intro-text{grid-column:1/-1;order:-1;margin-bottom:10px}
   .bento{grid-template-columns:1fr 1fr}
-  .glance-grid{grid-template-columns:1fr 1fr}
+  .glance-layout{grid-template-columns:1fr;gap:34px}
+  .reel-frame{max-width:420px;margin:0 auto}
+  .reel-cap{text-align:center;max-width:420px;margin-left:auto;margin-right:auto}
   .faq-side{position:static}
   .faq-side img{max-width:380px}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -445,6 +457,7 @@ section{position:relative}
   .journey-steps{grid-template-columns:1fr}
   .bento{grid-template-columns:1fr}
   .glance-grid{grid-template-columns:1fr}
+  .reel-play span{width:62px;height:62px}
   .b-img.tall{min-height:360px}
   .b-img.wide{grid-column:auto}
   .heal-track{grid-template-columns:1fr;text-align:left}
@@ -582,13 +595,25 @@ section{position:relative}
       <h2>The treatment at a glance</h2>
       <p>Everything most patients want to know before they read any further.</p>
     </div>
-    <div class="glance-grid reveal">
+    <div class="glance-layout">
+      <div class="reel reveal">
+        <div class="reel-frame" id="reelFrame">
+          <video id="reelVideo" playsinline preload="none" controls poster="video/reel-poster.webp">
+            <source src="video/ullas-reel.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <button class="reel-play" id="reelPlay" type="button" aria-label="Play patient video"><span><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6a1 1 0 0 0 1.53.85l10.6-6.8a1 1 0 0 0 0-1.7L9.53 4.35A1 1 0 0 0 8 5.2z"/></svg></span></button>
+        </div>
+        <p class="reel-cap"><strong>In her own words</strong>A patient describes her recovery six days after fractional CO2 resurfacing with Mr Ullas.</p>
+      </div>
+      <div class="glance-grid reveal reveal-d1">
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.8"/></svg></span><span class="g-label">Treatment time</span><span class="g-value">~20 min</span><span class="g-detail">for a full face session</span></div>
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s6 6.2 6 10.2a6 6 0 0 1-12 0C6 9.7 12 3.5 12 3.5z"/></svg></span><span class="g-label">Comfort</span><span class="g-value">Numbing cream</span><span class="g-detail">a light tickle, then warmth</span></div>
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></span><span class="g-label">Social downtime</span><span class="g-value">5 to 7 days</span><span class="g-detail">redness and flaking as skin renews</span></div>
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9.5l2.5-1.5v8"/></svg></span><span class="g-label">Sessions</span><span class="g-value">Often just 1</span><span class="g-detail">deeper concerns may need more</span></div>
       <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span><span class="g-label">First results</span><span class="g-value">2 to 4 weeks</span><span class="g-detail">improving for 3 to 6 months</span></div>
-      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>    </div>
+      <div class="glance-card"><span class="g-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="g-label">Longevity</span><span class="g-value">Years</span><span class="g-detail">with good skincare and daily SPF</span></div>      </div>
+    </div>
     <a class="btn btn-sand sec-cta" href="#book">Book a Consultation</a>
   </div>
 </section>
@@ -1203,6 +1228,20 @@ section{position:relative}
     });
   }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  /* patient reel play overlay */
+  var reelFrame = document.getElementById('reelFrame');
+  if(reelFrame){
+    var reelVideo = document.getElementById('reelVideo');
+    document.getElementById('reelPlay').addEventListener('click', function(){
+      reelFrame.classList.add('playing');
+      reelVideo.play();
+    });
+    reelVideo.addEventListener('pause', function(){
+      if(reelVideo.currentTime === 0 || reelVideo.ended) reelFrame.classList.remove('playing');
+    });
+    reelVideo.addEventListener('ended', function(){ reelFrame.classList.remove('playing'); });
+  }
 
   /* recovery journey sliders */
   document.querySelectorAll('[data-slider]').forEach(function(frame){

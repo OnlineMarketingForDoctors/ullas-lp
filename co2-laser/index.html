@@ -1191,8 +1191,10 @@ section{position:relative}
   "use strict";
 
   /* Booking form endpoint. Wire this to your CRM or form service before launch,
-     e.g. a Formspree/Web3Forms URL. Submissions POST as FormData. */
+     e.g. a Formspree/Web3Forms URL. Submissions POST as FormData.
+     On success the visitor is sent to THANK_YOU_URL. */
   var FORM_ENDPOINT = "";
+  var THANK_YOU_URL = "/thank-you/";
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -1358,9 +1360,8 @@ section{position:relative}
     fetch(FORM_ENDPOINT, {method:'POST', body:new FormData(form)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r; })
       .then(function(){
-        msg.className = 'form-msg ok';
-        msg.textContent = 'Thank you. Your request has been sent and our team will contact you shortly to arrange your consultation.';
         form.reset();
+        window.location.href = THANK_YOU_URL;
       })
       .catch(function(){
         msg.className = 'form-msg info';
